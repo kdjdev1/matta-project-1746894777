@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savoria | Fine Dining Restaurant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+
+        .menu-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .testimonial-slider {
+            transition: all 0.3s ease;
+        }
+
+        .reservation-form input,
+        .reservation-form select {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid #d1a054;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-gray-800">
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white bg-opacity-95 shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl md:text-3xl font-bold text-amber-800">
+                    Savoria
+                </h1>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center">
+                <ul class="flex space-x-8">
+                    <li><a href="#home" class="text-amber-900 hover:text-amber-600 font-medium">Home</a></li>
+                    <li><a href="#about" class="text-amber-900 hover:text-amber-600 font-medium">About</a></li>
+                    <li><a href="#menu" class="text-amber-900 hover:text-amber-600 font-medium">Menu</a></li>
+                    <li><a href="#testimonials" class="text-amber-900 hover:text-amber-600 font-medium">Testimonials</a></li>
+                    <li><a href="#contact" class="text-amber-900 hover:text-amber-600 font-medium">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="hidden md:block">
+                <a href="#reserve" class="bg-amber-700 hover:bg-amber-800 text-white py-2 px-6 rounded-full font-medium transition duration-300">Reserve a Table</a>
+            </div>
+            
+            <!-- Mobile Navigation Button -->
+            <button id="mobile-menu-button" class="md:hidden text-amber-900 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white w-full border-t">
+            <ul class="container mx-auto px-4 py-2">
+                <li><a href="#home" class="block py-2 text-amber-900 hover:text-amber-600 font-medium">Home</a></li>
+                <li><a href="#about" class="block py-2 text-amber-900 hover:text-amber-600 font-medium">About</a></li>
+                <li><a href="#menu" class="block py-2 text-amber-900 hover:text-amber-600 font-medium">Menu</a></li>
+                <li><a href="#testimonials" class="block py-2 text-amber-900 hover:text-amber-600 font-medium">Testimonials</a></li>
+                <li><a href="#contact" class="block py-2 text-amber-900 hover:text-amber-600 font-medium">Contact</a></li>
+                <li class="pt-2">
+                    <a href="#reserve" class="inline-block bg-amber-700 hover:bg-amber-800 text-white py-2 px-6 rounded-full font-medium transition duration-300">Reserve a Table</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section flex items-center">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Grand Opening</h1>
+            <h2 class="text-2xl md:text-4xl font-medium mb-8">Experience Exquisite Dining</h2>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-12">A culinary journey that combines tradition with innovation, elevating your dining experience to new heights.</p>
+            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6">
+                <a href="#menu" class="bg-amber-600 hover:bg-amber-700 text-white py-3 px-8 rounded-full font-medium transition duration-300 text-lg">Explore Menu</a>
+                <a href="#reserve" class="bg-transparent hover:bg-white text-white hover:text-amber-800 py-3 px-8 rounded-full font-medium border-2 border-white transition duration-300 text-lg">Book a Table</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-2 text-amber-800">Our Story</h2>
+                <div class="w-24 h-1 bg-amber-600 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">The passion behind our cuisine</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <img src="/api/placeholder/600/400" alt="Restaurant interior" class="rounded-lg shadow-xl w-full h-auto">
+                </div>
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-semibold mb-4 text-amber-800">Crafted with Passion</h3>
+                    <p class="text-gray-700 mb-6">
+                        Founded in 2025, Savoria brings together the finest ingredients and culinary expertise to create memorable dining experiences. Our chef, with over 15 years of international experience, has crafted a menu that celebrates local produce while incorporating global flavors.
+                    </p>
+                    <p class="text-gray-700 mb-8">
+                        Every dish tells a story, every flavor has a purpose. We believe in sustainable practices and work closely with local farmers to ensure the freshest ingredients reach your table.
+                    </p>
+                    <div class="flex space-x-6">
+                        <div>
+                            <h4 class="text-amber-800 font-semibold text-lg mb-2">Locally Sourced</h4>
+                            <p class="text-gray-600">Supporting local farmers and producers</p>
+                        </div>
+                        <div>
+                            <h4 class="text-amber-800 font-semibold text-lg mb-2">Seasonal Menu</h4>
+                            <p class="text-gray-600">Changing with the seasons for peak freshness</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-slate-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-2 text-amber-800">Our Signature Menu</h2>
+                <div class="w-24 h-1 bg-amber-600 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">A selection of our finest dishes</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Menu Card 1 -->
+                <div class="menu-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="/api/placeholder/400/300" alt="Dish 1" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-amber-800">Truffle Risotto</h3>
+                            <span class="text-amber-600 font-semibold">$28</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Creamy Arborio rice, wild mushrooms, truffle oil, aged Parmesan</p>
+                        <div class="flex items-center text-amber-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="ml-2 text-gray-600">(32)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Menu Card 2 -->
+                <div class="menu-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="/api/placeholder/400/300" alt="Dish 2" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-amber-800">Seared Scallops</h3>
+                            <span class="text-amber-600 font-semibold">$32</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Pan-seared scallops, cauliflower purée, pancetta, apple cider reduction</p>
+                        <div class="flex items-center text-amber-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="ml-2 text-gray-600">(41)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Menu Card 3 -->
+                <div class="menu-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="/api/placeholder/400/300" alt="Dish 3" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-amber-800">Braised Short Rib</h3>
+                            <span class="text-amber-600 font-semibold">$36</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">24-hour braised beef short rib, root vegetables, red wine jus</p>
+                        <div class="flex items-center text-amber-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="ml-2 text-gray-600">(28)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block border-2 border-amber-700 text-amber-700 hover:bg-amber-700 hover:text-white py-3 px-8 rounded-full font-medium transition duration-300">View Full Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-amber-800 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-2">What Our Guests Say</h2>
+                <div class="w-24 h-1 bg-white mx-auto mb-6"></div>
+                <p class="max-w-3xl mx-auto text-amber-100">Experiences from our satisfied guests</p>
+            </div>
+            
+            <div class="testimonial-container relative max-w-4xl mx-auto">
+                <div class="testimonial-slider active">
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm p-8 rounded-lg">
+                        <div class="flex flex-col md:flex-row md:items-center mb-6">
+                            <div class="mb-4 md:mb-0 md:mr-6">
+                                <div class="w-16 h-16 rounded-full overflow-hidden">
+                                    <img src="/api/placeholder/64/64" alt="Customer" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold">Emily Richardson</h3>
+                                <div class="flex items-center text-amber-300 mt-1">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-lg italic">"One of the best dining experiences I've ever had. The truffle risotto was exceptional, and the service was impeccable. The ambiance perfectly balances elegance with comfort. Can't wait to return!"</p>
+                    </div>
+                </div>
+                
+                <div class="testimonial-controls flex justify-center mt-8">
+                    <button id="prev-testimonial" class="mx-2 w-12 h-12 rounded-full bg-white bg-opacity-10 hover:bg-opacity-20 flex items-center justify-center transition duration-300">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button id="next-testimonial" class="mx-2 w-12 h-12 rounded-full bg-white bg-opacity-10 hover:bg-opacity-20 flex items-center justify-center transition duration-300">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section id="reserve" class="py-20 bg-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 lg:pr-12 mb-10 lg:mb-0">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Reserve Your Table</h2>
+                    <div class="w-24 h-1 bg-amber-600 mb-8"></div>
+                    <p class="text-gray-300 mb-8 text-lg">
+                        Secure your spot for an unforgettable dining experience. Reservations are recommended, especially for weekends and special occasions.
+                    </p>
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold mb-4 text-amber-400">Opening Hours</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex justify-between">
+                                <span>Monday - Thursday</span>
+                                <span>5:00 PM - 10:00 PM</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Friday - Saturday</span>
+                                <span>5:00 PM - 11:00 PM</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Sunday</span>
+                                <span>5:00 PM - 9:00 PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-amber-400">Contact</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-amber-400 mr-3"></i>
+                                <span>123 Culinary Avenue, Gourmet City</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-phone text-amber-400 mr-3"></i>
+                                <span>(555) 123-4567</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-envelope text-amber-400 mr-3"></i>
+                                <span>reservations@savoria.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <form class="reservation-form bg-white bg-opacity-10 backdrop-blur-sm p-8 rounded-lg">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2" for="name">Full Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-800" placeholder="Your name">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2" for="email">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-800" placeholder="Your email">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2" for="phone">Phone Number</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-800" placeholder="Your phone">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2" for="guests">Number of Guests</label>
+                                <select id="guests" class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-800 appearance-none bg-white">
+                                    <option value="1">1 Person</option>
+                                    <option value="2">2 People</option>
+                                    <option value="3">3 People</option>
+                                    <option value="4">4 People</option>
+                                    <option value="5">5 People</option>
+                                    <option value="6">6+ People</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2" for="date">Date</label>
+                                <input type="date" id="date" class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-800">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2" for="time">Time</label>
+                                <select id="time" class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-800 appearance-none bg-white">
+                                    <option value="17:00">5:00 PM</option>
+                                    <option value="17:30">5:30 PM</option>
+                                    <option value="18:00">6:00 PM</option>
+                                    <option value="18:30">6:30 PM</option>
+                                    <option value="19:00">7:00 PM</option>
+                                    <option value="19:30">7:30 PM</option>
+                                    <option value="20:00">8:00 PM</option>
+                                    <option value="20:30">8:30 PM</option>
+                                    <option value="21:00">9:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium mb-2" for="special">Special Requests</label>
+                            <textarea id="special" rows="3" class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-800" placeholder="Any special requests or dietary requirements?"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white py-3 px-6 rounded-lg font-medium transition duration-300">Book My Table</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Feed Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-2 text-amber-800">Follow Our Journey</h2>
+                <div class="w-24 h-1 bg-amber-600 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">Join us on Instagram <span class="text-amber-700 font-medium">@savoria_restaurant</span></p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="overflow-hidden rounded-lg">
+                    <img src="/api/placeholder/300/300" alt="Instagram post" class="w-full h-auto transform hover:scale-110 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg">
+                    <img src="/api/placeholder/300/300" alt="Instagram post" class="w-full h-auto transform hover:scale-110 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg">
+                    <img src="/api/placeholder/300/300" alt="Instagram post" class="w-full h-auto transform hover:scale-110 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg">
+                    <img src="/api/placeholder/300/300" alt="Instagram post" class="w-full h-auto transform hover:scale-110 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap">
+                <div class="w-full md:w-1/3 mb-10 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-6 text-amber-400">Savoria</h3>
+                    <p class="text-gray-400 mb-6 max-w-xs">
+                        Experience fine dining in a warm and intimate setting, where every meal becomes a memorable celebration.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-amber-400 transition duration-300">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-amber-400 transition duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-amber-400 transition duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-amber-400 transition duration-300">
+                            <i class="fab fa-yelp text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/3 mb-10 md:mb-0">
+                    <h3 class="text-xl font-semibold mb-6">Contact Us</h3>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-amber-400"></i>
+                            <span>123 Culinary Avenue, Gourmet City, GC 12345</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-3 text-amber-400"></i>
+                            <span>(555) 123-4567</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-amber-400"></i>
+                            <span>info@savoria.com</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="w-full md:w-1/3">
+                    <h3 class="text-xl font-semibold mb-6">Newsletter</h3>
+                    <p class="text-gray-400 mb-6">
+                        Subscribe to our newsletter for seasonal menus, special events, and exclusive offers.
+                    </p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email address" class="flex-grow px-4 py-2 bg-gray-800 rounded-l-lg focus:outline-none text-white">
+                        <button type="submit" class="bg-amber-600 hover:bg-amber-700 px-4 py-2 rounded-r-lg transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+                <p>&copy; 2025 Savoria Restaurant. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth Scrolling for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Simple Testimonial Slider
+        const testimonials = [
+            {
+                name: "Emily Richardson",
+                image: "/api/placeholder/64/64",
+                stars: 5,
+                text: "One of the best dining experiences I've ever had. The truffle risotto was exceptional, and the service was impeccable. The ambiance perfectly balances elegance with comfort. Can't wait to return!"
+            },
+            {
+                name: "Michael Johnson",
+                image: "/api/placeholder/64/64",
+                stars: 5,
+                text: "The chef's tasting menu was a culinary journey I won't soon forget. Each dish was perfectly executed with surprising flavor combinations. The sommelier's wine pairings elevated the experience even further."
+            },
+            {
+                name: "Sarah Williams",
+                image: "/api/placeholder/64/64",
+                stars: 4,
+                text: "Beautiful atmosphere and attentive service. The seasonal menu showcases local ingredients brilliantly. The braised short rib melted in my mouth! Definitely worth making a reservation in advance."
+            }
+        ];
+        
+        let currentTestimonial = 0;
+        const testimonialSlider = document.querySelector('.testimonial-slider');
+        const prevButton = document.getElementById('prev-testimonial');
+        const nextButton = document.getElementById('next-testimonial');
+        
+        function updateTestimonial() {
+            const testimonial = testimonials[currentTestimonial];
+            let starsHTML = '';
+            
+            for (let i = 0; i < testimonial.stars; i++) {
+                starsHTML += '<i class="fas fa-star"></i>';
+            }
+            
+            for (let i = testimonial.stars; i < 5; i++) {
+                starsHTML += '<i class="fas fa-star-half-alt"></i>';
+            }
+            
+            testimonialSlider.innerHTML = `
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm p-8 rounded-lg">
+                    <div class="flex flex-col md:flex-row md:items-center mb-6">
+                        <div class="mb-4 md:mb-0 md:mr-6">
+                            <div class="w-16 h-16 rounded-full overflow-hidden">
+                                <img src="${testimonial.image}" alt="${testimonial.name}" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold">${testimonial.name}</h3>
+                            <div class="flex items-center text-amber-300 mt-1">
+                                ${starsHTML}
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-lg italic">"${testimonial.text}"</p>
+                </div>
+            `;
+        }
+        
+        prevButton.addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+            updateTestimonial();
+        });
+        
+        nextButton.addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            updateTestimonial();
+        });
+        
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md');
+                header.classList.remove('bg-opacity-95');
+                header.classList.add('bg-opacity-98');
+            } else {
+                header.classList.remove('shadow-md');
+                header.classList.add('bg-opacity-95');
+                header.classList.remove('bg-opacity-98');
+            }
+        });
+    </script>
+</body>
+</html>
